@@ -11,7 +11,7 @@ const issueSchema = new mongoose.Schema({
     },
     taskType: {
         type: String,
-        enum : ['None', 'Bug','Issue', 'User Story'],
+        enum : ['None', 'Bug','Issue', 'User Story', 'Backlog'],
         default: 'None'
     },
     taskPriority: {

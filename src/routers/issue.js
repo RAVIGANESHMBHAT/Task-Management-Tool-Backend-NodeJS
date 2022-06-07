@@ -13,3 +13,14 @@ router.post('/issues', async (req, res) => {
         res.status(400).send(err)
     }
 })
+
+router.get('/issues', async (req, res) => {
+    try {
+        const issues = await Issue.find({})
+        res.status(200).send(issues)
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+module.exports = router
