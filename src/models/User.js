@@ -3,7 +3,7 @@ const validator = require("validator");
 // const bcrypt = require('bcryptjs')
 // const jwt = require('jsonwebtoken')
 
-const Task = require('./Task')
+//const Task = require('./Task')
 
 const userSchema = new mongoose.Schema({
     name: {
@@ -29,9 +29,9 @@ const userSchema = new mongoose.Schema({
         minLength: 7,
         trim: true,
         validate(value) {
-            // if(value.length <=6) {
-            //     throw new Error('Password must be greater than 6 characters.')
-            // }
+            if(value.length <=6) {
+                throw new Error('Password must be greater than 6 characters.')
+            }
             // if (value.toLowerCase().includes("password")) {
             //     throw new Error('Password cannot contain "password".')
             // }
