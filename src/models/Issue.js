@@ -26,6 +26,8 @@ const issueSchema = new mongoose.Schema({
         enum: ['Open', 'In Progress', 'Blocked', 'Completed'],
         default: 'Open'
     }
+}, {
+    timestamps: true
 })
 
 const Issue = mongoose.model("Issue", issueSchema)
