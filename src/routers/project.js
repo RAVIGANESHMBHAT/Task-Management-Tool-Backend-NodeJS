@@ -9,6 +9,7 @@ router.post('/projects', async (req, res) => {
         await project.save()
         res.status(201).send(project)
     } catch (err) {
+        console.log(err)
         res.status(400).send(err)
     }
 })

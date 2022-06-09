@@ -28,17 +28,16 @@ router.get('/users', async (req, res) => {
     }
 })
 
-/*router.post('/users/login', async (req, res) => {
+router.post('/users/login', async (req, res) => {
     try {
         const user = await User.findByCredentials(req.body.email, req.body.password)
-        const token = await user.generateAuthToken()
-        res.status(200).send({user, token})
+        res.status(200).send(user)
     } catch(e) {
         res.status(401).send()
     }
 })
 
-router.post('/users/logout', auth, async (req, res) => {
+/*router.post('/users/logout', auth, async (req, res) => {
     try {
         req.user.tokens = req.user.tokens.filter((token) => {
             return token.token !== req.token

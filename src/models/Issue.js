@@ -5,21 +5,30 @@ const issueSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    taskTitle: {
-        type: String,
-        required: true
-    },
     taskType: {
         type: String,
         enum : ['None', 'Bug','Issue', 'User Story', 'Backlog'],
         default: 'None'
+    },
+    taskTitle: {
+        type: String,
+        required: true
+    },
+    taskDescription: {
+        type: String,
+        required: true
+    },
+    originalEstimation: {
+        type: String,
+        required: true
     },
     taskPriority: {
         type: String,
         enum: ['Low', 'Medium', 'High']
     },
     taskAssigneeName: {
-        type: String
+        type: String,
+        required: true
     },
     taskStatus: {
         type: String,
@@ -29,6 +38,16 @@ const issueSchema = new mongoose.Schema({
 }, {
     timestamps: true
 })
+
+// issueSchema.methods.toJSON = function () {
+//     const issue = this;
+//     const issueObject = issue.toObject()
+
+//     delete issueObject.createdAt
+//     delete issueObject.updatedAt
+
+//     return issueObject
+// }
 
 const Issue = mongoose.model("Issue", issueSchema)
 

@@ -1,18 +1,29 @@
 const mongoose = require("mongoose");
 
-const projectModel = mongoose.Schema({
+const projectSchema = mongoose.Schema({
     projectCode: {
         type: String,
-        required: true
+        required: true,
+        unique: true
     },
     projectName: {
         type: String,
-        require: true
+        required: true
     }
 }, {
     timestamps: true
 })
 
-const Project = mongoose.model("Project", projectModel)
+projectSchema.methods.toJSON = function () {
+    const project = this;
+    const projectObject = project.toObject()
+
+    delete projectObject.createdAt
+    delete projectObject.updatedAt
+
+    return projectObject
+}
+
+const Project = mongoose.model("Project", projectSchema)
 
 module.exports = Project

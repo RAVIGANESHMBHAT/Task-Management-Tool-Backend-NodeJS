@@ -16,8 +16,25 @@ router.post('/issues', async (req, res) => {
 
 router.get('/issues', async (req, res) => {
     try {
-        const issues = await Issue.find({})
+        const issues = await Issue.find({ $orderby: { createdAt: +1 }})
         res.status(200).send(issues)
+       
+        
+    } catch (err) {
+        res.status(500).send(err)
+    }
+})
+
+router.get('/issues/:id', async (req, res) => {
+    try {
+        const issue = await Issue.findById(req.params.id)
+        if(issue)
+            res.status(200).send(issue)
+        else {
+            res.status(404).send({})
+        }
+       
+        
     } catch (err) {
         res.status(500).send(err)
     }
