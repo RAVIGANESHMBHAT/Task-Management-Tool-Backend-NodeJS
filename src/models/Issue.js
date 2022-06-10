@@ -22,11 +22,19 @@ const issueSchema = new mongoose.Schema({
         type: String,
         required: true
     },
+    timeLogged: {
+        type: String,
+        default: "0h"
+    },
     taskPriority: {
         type: String,
         enum: ['Low', 'Medium', 'High']
     },
     taskAssigneeName: {
+        type: String,
+        required: true
+    },
+    taskAssigneeId: {
         type: String,
         required: true
     },
