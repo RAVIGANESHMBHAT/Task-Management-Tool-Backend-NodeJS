@@ -1,5 +1,5 @@
 # Task-Management-Tool-Backend-NodeJS
-This is the NodeJS backend for the Task management Tool, an SAPUI5 application.
+This is the NodeJS backend for the Task management Tool, a SAPUI5 application.
 
 The frontend repository link: https://github.com/RAVIGANESHMBHAT/Task-Management-Tool
 
